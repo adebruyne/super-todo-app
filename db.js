@@ -11,8 +11,7 @@ const db = pgp(cn);
 function getOne(id){
    return db.oneOrNone('SELECT * FROM todos WHERE id = $1', [id]);
     
-};
-
+}
 // getTodo(2)
 //     .then(function(data) {
 //     // success;
@@ -23,6 +22,16 @@ function getOne(id){
 //     console.log(error);
 //         });
 
+function getAll() {
+    return db.any('SELECT * FROM todos');
+}
+
+// getAll()
+//     .then((data) => {console.log(data);})
+//     .catch((error) => {console.log(error);});
+
+
 module.exports = {
-    getOne
+    getOne,
+    getAll
 }
