@@ -68,6 +68,13 @@ function setFinished(id, isDone) {
 //     .then((data) => {console.log(data);})
 //     .catch((error) => {console.log(error);});
 
+function setTitle(id, newTitle) {
+    return db.result("update todos set title = '$1#' where id = $2", [newTitle, id])
+}
+
+// setTitle(2, 'Battle nasty Orcs') 
+//     .then((data) => {console.log(data);})
+//     .catch((error) => {console.log(error);})
 
 
 module.exports = {
@@ -77,6 +84,8 @@ module.exports = {
     getFinished,
     searchByTitle, 
     deleteById,
-    setFinished
+    setFinished,
+    setTitle
+
     
 }
