@@ -52,6 +52,15 @@ function searchByTitle (searchString){
 //     .then((data) => {console.log(data);})
 //     .catch((error) => {console.log(error);});
 
+function deleteById(id){
+    return db.result('delete from todos where id = $1', [id]);
+}
+// deleteById(3)
+//     .then((data) => {console.log(data);})
+//     .catch((error) => {console.log(error);});
+
+
+
 
 
 module.exports = {
@@ -59,6 +68,7 @@ module.exports = {
     getAll,
     getPending,
     getFinished,
-    searchByTitle
+    searchByTitle, 
+    deleteById
     
 }
