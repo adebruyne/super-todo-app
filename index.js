@@ -77,7 +77,7 @@ app.get('/:id' , (req,res) => {
         .then((data) => {
             console.log(data);
             // res.send(data);
-            res.render('todo-edit-page', data)
+            res.render('todo-detail-page', data)
      })
         .catch((error) => {console.log(error);});
 })
