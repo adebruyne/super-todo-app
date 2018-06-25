@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
+    "resetdb": "dropdb super-todo-app; createdb super-todo-app; psql -d super-todo-app -f schema.sql; psql -d super-todo-app -f dummy-data.sql",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +15,7 @@
     "nodemon": "^1.17.5"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "pg-promise": "^8.4.4"

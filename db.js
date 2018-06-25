@@ -94,6 +94,7 @@ module.exports = {
     searchByTitle, 
     deleteById,
     setFinished,
+    setTitle,
     add
 
     
