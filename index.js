@@ -56,15 +56,22 @@ app.get('/:id/edit',(req,res)=>{
 
 app.post('/:id/edit', (req,res) =>{
     console.log(req.body);
-    var id = req.params.id;
-    var newTitle = req.body.title;
+    let id = req.params.id;
+    let newTitle = req.body.title;
+    let isDone = false;
+
+    if(req.body.finished){
+        isDone = true;
+    }
 
     Todo.setTitle(id, newTitle)
         .then((data) => {
-            console.log(data)
-            res.redirect(`/`)
-            
-
+            Todo.setFinished(id, isDone)
+                .then((data) => {
+                     res.redirect(`/`)
+                })
+            // console.log(data)
+           
         })
         .catch((error) => {console.log(error);});
 })
